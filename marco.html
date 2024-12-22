@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Monsesita</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #FFC1CC, #FDEBCE);
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+    }
+    h1, p {
+      margin: 0;
+    }
+    .message {
+      font-size: 2.5rem;
+      color: #FF69B4;
+      animation: fadeOut 3s forwards;
+    }
+    .hidden {
+      display: none;
+    }
+    .envelope {
+      display: none;
+      margin: 20px auto;
+      width: 200px;
+      height: 150px;
+      background: red;
+      border-radius: 10px;
+      position: relative;
+    }
+    .envelope::before {
+      content: "MyM";
+      font-size: 2rem;
+      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .button {
+      display: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: white;
+      background: #FF69B4;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .letter {
+      display: none;
+      margin: 20px auto;
+      width: 300px;
+      background: white;
+      padding: 20px;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+    }
+    .final-message {
+      display: none;
+      font-size: 1.8rem;
+      color: #FF69B4;
+    }
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="message">Buenos días, amor de mi vida 💓</h1>
+    <div class="envelope" id="envelope"></div>
+    <button class="button" id="openButton">Presiona aquí para abrirlo, bebé</button>
+    <div class="letter" id="letter">
+      <p>Hola, amor, gracias por abrirlo y permitir expresarme de esta forma, que es mi manera jsjs. Estoy enamorado de ti y de todo lo que eres, se que esto ya no te importa, como tú dices, pero es algo que deseo mucho decirte. Ya te quiero ver para poder abrazarte muy fuerte. Los últimos días, semanas, incluso meses, han sido los más complicados para nuestra relación. Pero oye, llegó el fin de eso, estoy decidido a ya no seguir de la misma forma. Eres el amor de mi vida y así lo será siempre. Puede que después de que leas esto, dirás "ay si pues se lo rogué mucho" Pero esto no es para eso, es para darte a entender que todo cambiará de ahora en adelante. Te amo y te amaré siempre, es muy lindo poder tener una relación contigo, se que será difícil, pero haré que vuelvas a creer en todo eso que deseamos desde un inicio, ese amor y ese futuro que tanto planeamos juntos, te lo prometo. Gracias por seguir conmigo y dejarme ser tu novio, mi amo</p>
+    </div>
+    <button class="button" id="endButton">Si ya terminaste, da clic aquí, preciosa</button>
+    <h2 class="final-message" id="finalMessage">Gracias por tu tiempo, bonita niña</h2>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const message = document.querySelector(".message");
+      const envelope = document.getElementById("envelope");
+      const openButton = document.getElementById("openButton");
+      const letter = document.getElementById("letter");
+      const endButton = document.getElementById("endButton");
+      const finalMessage = document.getElementById("finalMessage");
+
+      setTimeout(() => {
+        message.classList.add("hidden");
+        envelope.style.display = "block";
+        openButton.style.display = "block";
+      }, 3000);
+
+      openButton.addEventListener("click", () => {
+        envelope.style.display = "none";
+        openButton.style.display = "none";
+        letter.style.display = "block";
+        endButton.style.display = "block";
+      });
+
+      endButton.addEventListener("click", () => {
+        letter.style.display = "none";
+        endButton.style.display = "none";
+        finalMessage.style.display = "block";
+      });
+    });
+  </script>
+</body>
+</html>

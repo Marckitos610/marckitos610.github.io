@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre de Amor</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #ffe4e1, #fffacd);
+        }
+
+        .message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            text-align: center;
+            color: #ff6f61;
+            display: none;
+        }
+
+        .envelope-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            display: none;
+        }
+
+        .envelope {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: #ff6f61;
+            border-radius: 5px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .envelope::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transform: translateY(-100%);
+            transition: transform 0.5s;
+            z-index: 2;
+        }
+
+        .envelope.open::before {
+            transform: translateY(0);
+        }
+
+        .envelope-message {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            color: #333;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.5;
+            opacity: 0;
+            transform: translateY(-50px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .envelope.open .envelope-message {
+            opacity: 1;
+            transform: translateY(0);
+            z-index: 1;
+        }
+
+        button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e55b50;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="message" id="greeting">Buenos días, amor de mi vida</div>
+    <div class="envelope-container" id="envelopeContainer">
+        <div class="envelope" id="envelope">
+            <div class="envelope-message">
+                Hola, amor, gracias por abrirlo y permitir expresarme de esta forma, que es mi manera jsjs. Estoy enamorado de ti y de todo lo que eres, sé que esto ya no te importa, como tú dices, pero es algo que deseo mucho decirte. Ya te quiero ver para poder abrazarte muy fuerte. Los últimos días, semanas, incluso meses, han sido los más complicados para nuestra relación. Pero oye, llegó el fin de eso, estoy decidido a ya no seguir de la misma forma. Eres el amor de mi vida y así lo será siempre. Puede que después de que leas esto, dirás "ay sí pues se lo rogué mucho". Pero esto no es para eso, es para darte a entender que todo cambiará de ahora en adelante. Te amo y te amaré siempre, es muy lindo poder tener una relación contigo, sé que será difícil, pero haré que vuelvas a creer en todo eso que deseamos desde un inicio, ese amor y ese futuro que tanto planeamos juntos, te lo prometo. Gracias por seguir conmigo y dejarme ser tu novio, mi amor.
+            </div>
+        </div>
+        <button onclick="openEnvelope()">Presiona aquí, bebé</button>
+    </div>
+
+    <script>
+        function showGreeting() {
+            const greeting = document.getElementById('greeting');
+            greeting.style.display = 'block';
+            setTimeout(() => {
+                greeting.style.display = 'none';
+                document.getElementById('envelopeContainer').style.display = 'flex';
+            }, 5000);
+        }
+
+        function openEnvelope() {
+            document.getElementById('envelope').classList.add('open');
+        }
+
+        // Show the greeting on page load
+        window.onload = showGreeting;
+    </script>
+</body>
+</html>
